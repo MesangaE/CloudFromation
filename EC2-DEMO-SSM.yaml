@@ -1,0 +1,27 @@
+Parameters:
+  AvailabilityZone:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: AvailabilityZone
+
+  ImageId: 
+     Type: AWS::SSM::Parameter::Value<AWS::ECS::Image::Id>
+     Default: ImageId
+
+  instancetype:
+     Type: AWS::SSM::Parameter::Value<String>
+     Default: instancetype
+   
+
+Resources:
+ MyInstance:
+  Type: AWS::EC2::Instance
+  Properties: 
+    AvailabilityZone: 
+      Ref: AvailabilityZone
+    ImageId: 
+      Ref: ImageId
+    instancetype:  
+      Ref: instancetype
+  
+
+ 
